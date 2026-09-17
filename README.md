@@ -1,6 +1,10 @@
-# Raven for Research
+<h1 align="center">Raven for Research</h1>
 
-_A research desk for people who save more papers than they read._
+<p align="center">
+  <img src="docs/mascot.png" alt="Raven, the mascot" width="220">
+</p>
+
+<p align="center"><em>A research desk for people who save more papers than they read.</em></p>
 
 Raven is a personal research assistant: you throw it URLs — arXiv papers, journal
 articles, blog posts, PDFs — and it fetches them, reads them, summarizes them,
