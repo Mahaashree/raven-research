@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0d0d0f;
+  /* Card surfaces aren't in the 5-token brief, but the reference clearly
+     distinguishes cards from the page background — pragmatic implementation
+     shades, not a new brand color. */
+  --surface: #17171a;
+  --surface-raised: #1f2023;
+
+  --ochre: #ef9f27;
+  --cream: #f2ece0;
+  --blue: #37bbf8;
+  --warm: #80756a;
+  /* Fifth token: cross-field/abstract-theory tag color per the reference,
+     not present in the four base tokens. */
+  --purple: #9b87c4;
+
+  /* One radius value, used everywhere. Small — not the rounded-card-kit look. */
+  --radius-raven: 6px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ochre: var(--ochre);
+  --color-cream: var(--cream);
+  --color-blue: var(--blue);
+  --color-warm: var(--warm);
+  --color-purple: var(--purple);
+
+  --font-display: var(--font-newsreader);
+  --font-sans: var(--font-inter);
+
+  /* Overriding Tailwind's own radius scale keeps every rounded-md/lg call
+     resolving to the same single value across the app. */
+  --radius-md: var(--radius-raven);
+  --radius-lg: var(--radius-raven);
+}
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-sans), sans-serif;
+}
+
+/* Newsreader is reserved for page/item titles, applied explicitly via
+   .font-display — not a blanket h1-h3 rule, so small section labels stay on
+   the body sans. */
+.font-display {
+  font-family: var(--font-display), serif;
+}
+
+/* Mascot poses */
+@keyframes mascot-tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes mascot-hop {
+  0% {
+    transform: translateY(0);
+  }
+  35% {
+    transform: translateY(-7px);
+  }
+  65% {
+    transform: translateY(0.5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.mascot-head-loading {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: mascot-tilt 1500ms ease-in-out infinite;
+}
+
+.mascot-body-success {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: mascot-hop 480ms ease-out 1;
+}
+
+@keyframes status-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.status-pending-pulse {
+  animation: status-pulse 1.8s ease-in-out infinite;
+}

@@ -1,0 +1,1 @@
+ALTER TABLE collection_items ADD COLUMN added_at TIMESTAMPTZ NOT NULL DEFAULT now();
